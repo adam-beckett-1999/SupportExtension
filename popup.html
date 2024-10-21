@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark Manager</title>
     <link rel="stylesheet" href="popup.css">
-    <title>Technician Bookmarks</title>
-  </head>
-  <body>
-    <h1>Technician Bookmarks</h1>
-    <div>
-      <input type="text" id="bookmarkName" placeholder="Bookmark Name">
-      <input type="text" id="bookmarkUrl" placeholder="Bookmark URL">
-      <button id="saveBookmark">Save Bookmark</button>
-    </div>
-    <ul id="bookmarkList"></ul>
+</head>
+<body class="light"> <!-- You can toggle between 'light' and 'dark' classes -->
+    <div id="popup-container">
+        <div id="tab-header">
+            <button class="tab-button active" data-tab="bookmarks">Bookmarks</button>
+            <button class="tab-button" data-tab="tools">Tools</button>
+        </div>
 
+        <div class="tab-content active" id="bookmarks">
+            <h2>Technician Bookmarks</h2> <!-- Updated header -->
+            <form id="bookmark-form">
+                <input type="text" id="bookmark-url" placeholder="Enter URL" required>
+                <input type="text" id="bookmark-name" placeholder="Enter Name" required>
+                <button type="submit">Save Bookmark</button>
+            </form>
+            <ul id="bookmarkList"></ul>
+        </div>
+
+        <div class="tab-content" id="tools">
+            <h2 style="font-size: 18px;">Student Password Generator</h2> <!-- Password generator header -->
+            <button id="generatePassword">Generate Password</button>
+            <div id="passwordBox">
+                <p id="passwordDisplay" style="font-weight: bold; margin: 10px 0;"></p>
+                <button id="copyPassword">Copy Password</button>
+            </div>
+        </div>
+    </div>
     <script src="popup.js"></script>
-  </body>
+</body>
 </html>
